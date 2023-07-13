@@ -7,7 +7,7 @@ export class PrismadbService extends PrismaClient {
         super({
             datasources:{
                 db:{
-                    url: "mongodb+srv://razgrisss41:Abc47599541@cluster0.dkqqwgl.mongodb.net/nestjs"
+                    url: ""
                 }
             }
         })

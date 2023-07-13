@@ -14,9 +14,7 @@ export class AuthService{
         
         const user = await this.prismadb.user.create({
             data: {
-                firstName: "Chris",
-                lastName: "Rizzo",
-                email: 'hola',
+                email: 'raz@raz.com',
                 hash
             }
         })
