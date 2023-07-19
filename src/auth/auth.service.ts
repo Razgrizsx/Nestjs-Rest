@@ -45,9 +45,9 @@ export class AuthService{
                 email: dto.email
             }
         })
-        if(!user) throw new ForbiddenException("Credentials Incorrect")
+        if(!user) throw new ForbiddenException("User do not exist")
         const pwMatches = await argon.verify((await user).hash , dto.password)
-        if(!pwMatches) throw new ForbiddenException("Credentials Incorrect")
+        if(!pwMatches) throw new ForbiddenException("Wrong Password")
         return this.signToken((await user).id, (await user).email)
     }
 
@@ -57,7 +57,7 @@ export class AuthService{
             email: email
             }
             const token = await this.jwt.signAsync(data, {
-            expiresIn: "15m",
+            expiresIn: "30m",
             secret: this.config.get("JWT_SECRET")
             })
             return {
